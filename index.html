@@ -19,23 +19,23 @@
             </div>
             <div class="form-group">
               <label for="emailInput">Email</label>
-              <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" placeholder="dr@who.com">
+              <input class="form-control" data-email-input="email" type="email" name="emailAddress" id="emailInput" value="" placeholder="dr@who.com">
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="size" value="short">
+                <input type="radio" data-size-selection="short" name="size" value="short">
                 Short
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="size" value="tall" checked>
+                <input type="radio"  data-size-selection="tall" name="size" value="tall" checked>
                 Tall
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="size" value="grande">
+                <input type="radio" data-size-selection="grande" name="size" value="grande">
                 Grande
               </label>
             </div>
@@ -43,14 +43,14 @@
               <label for="flavorShot">Flavor Shot</label>
               <select id="flavorShot" class="form-control" name="flavor">
                 <option value="">None</option>
-                <option value="caramel">Caramel</option>
-                <option value="almond">Almond</option>
-                <option value="mocha">Mocha</option>
+                <option data-flavor="caramel" value="caramel">Caramel</option>
+                <option data-flavor="almond" value="almond">Almond</option>
+                <option data-flavor="mocha" value="mocha">Mocha</option>
               </select>
             </div>
             <div class="form-group">
               <label for="strengthLevel">Caffeine Rating</label>
-              <input name="strength" id="strengthLevel" type="range" value="30">
+              <input name="strength" data-caffeine="rating" id="strengthLevel" type="range" value="30">
             </div>
             <button type="submit" data-submit class="btn btn-default">Submit</button>
             <button type="reset" class="btn btn-default">Reset</button>
