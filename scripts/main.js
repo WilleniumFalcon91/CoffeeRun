@@ -3,9 +3,8 @@ var FORMSELECTOR = '[data-coffee-order="form"]';
 
 var COFFEESELECTOR = '[data-coffee-order="coffee"]';
 var EMAILSELECTOR = '[data-email-input="email"]';
-var SIZESHORTSELECTOR = '[data-size-selection="short"]'
-var SIZETALLSELECTOR = '[data-size-selection="tall"]'
-var SIZEGRANDESELECTOR = '[data-size-selection="grande"]'
+var SIZESELECTOR = '[data-size-selection="size"]';
+
 var CARAMELFLAVORSHOTSELECTOR = '[data-flavor="caramel"]'
 var ALMONDFLAVORSHOTSELECTOR = '[data-flavor="almond"]'
 var MOCHAFLAVORSHOTSELECTOR = '[data-flavor="mocha"]'
@@ -18,9 +17,9 @@ function storesValue (key, value) {
 function main (form) {
     form.on('submit', function (event){
         event.preventDefault();
-        extractValue(COFFEESELECTOR);
-        extractValue(EMAILSELECTOR);
-        extractValue();
+        extractTextValue(COFFEESELECTOR);
+        extractTextValue(EMAILSELECTOR);
+        extractRadioValue();
         extractValue(CAFFEINERATINGSELECTOR);
     })
 }
@@ -34,7 +33,7 @@ function extractTextValue(formField) {
 function extractRadioValue(formField) { //look up how to get value of radio button
     var $input = $(formField);
     var keyName = $input.attr('name');
-    // var value = $input.val(); 
+    var selValue = $('input[name=size]:checked').val();
     storesValue(keyName, value);
 } 
 
