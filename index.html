@@ -23,19 +23,19 @@
             </div>
             <div class="radio">
               <label>
-                <input type="radio" data-size-selection="short" name="size" value="short">
+                <input type="radio" data-size-selection="size" name="size" value="short">
                 Short
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio"  data-size-selection="tall" name="size" value="tall" checked>
+                <input type="radio"  data-size-selection="size" name="size" value="tall" checked>
                 Tall
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" data-size-selection="grande" name="size" value="grande">
+                <input type="radio" data-size-selection="size" name="size" value="grande">
                 Grande
               </label>
             </div>
@@ -43,9 +43,9 @@
               <label for="flavorShot">Flavor Shot</label>
               <select id="flavorShot" class="form-control" name="flavor">
                 <option value="">None</option>
-                <option data-flavor="caramel" value="caramel">Caramel</option>
-                <option data-flavor="almond" value="almond">Almond</option>
-                <option data-flavor="mocha" value="mocha">Mocha</option>
+                <option data-select="flavor" value="caramel">Caramel</option>
+                <option data-select="flavor" value="almond">Almond</option>
+                <option data-select="flavor" value="mocha">Mocha</option>
               </select>
             </div>
             <div class="form-group">
@@ -63,5 +63,6 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
     <script src="scripts/main.js" charset="utf-8"></script>
+    <script src="scripts/ajax.js" charset="utf-8"></script>
   </body>
 </html>
