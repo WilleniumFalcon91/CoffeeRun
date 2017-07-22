@@ -42,4 +42,5 @@ function main (form) {
         extractTextValue(CAFFEINERATINGSELECTOR);
     })
 }
+
 main($(FORMSELECTOR));
