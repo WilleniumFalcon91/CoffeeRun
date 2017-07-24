@@ -21,3 +21,15 @@ $.post(URL, myData, function(response) {
 })
 
 // $.get(URL, myData);
+
+function getServerData(fn) {
+    $.get(URL, function(data) {
+    console.log(data);
+})
+}
+
+function sendDataToServer(fn) {
+    $.post(URL, myData, function(response) {
+    console.log(response);
+})
+}
