@@ -1,11 +1,13 @@
 var URL = 'http://dc-coffeerun.herokuapp.com/api/coffeeorders';
 var FORMSELECTOR = '[data-coffee-order="form"]';
 
-var COFFEESELECTOR = '[data-coffee-order="coffee"]';
-var EMAILSELECTOR = '[data-email-input="email"]';
-var SIZESELECTOR = 'input[data-size-selection="size"]';
-var FLAVORSHOTSELECTOR = '[data-select="flavor"]';
-var CAFFEINERATINGSELECTOR = '[data-caffeine="rating"]'
+var COFFEESELECTOR = $('[data-coffee-order="coffee"]');
+var EMAILSELECTOR = $('[data-email-input="email"]');
+var SIZESELECTOR = $('input[data-size-selection="size"]');
+var FLAVORSHOTSELECTOR = $('[data-select="flavor"]');
+var CAFFEINERATINGSELECTOR = $('[data-caffeine="rating"]');
+
+var myDataDict = {};
 
 function storesValue (key, value) {
     localStorage.setItem(key, value);
@@ -26,10 +28,8 @@ function extractRadioValue(formField) {
     $input.each(function (i, e) {
         if (e.checked === true) {
             value = e.value;
-        // var value = $('input[name="size"]:checked').text();
         }
     }) 
-    // $input
     storesValue(keyName, value);
     console.log(keyName);
 } 
@@ -41,6 +41,16 @@ function extractDropValue(formField) {
     storesValue(keyName, value);
 }
 
+function dataSaver() {
+    myDataDict = {
+        'coffee': COFFEESELECTOR.val(),
+        'emailAddress': EMAILSELECTOR.val(),
+        'size': SIZESELECTOR.val(),
+        'flavor': FLAVORSHOTSELECTOR.val(),
+        'strength': CAFFEINERATINGSELECTOR.val()
+    }
+}
+
 function main (form) {
     form.on('submit', function (event){
         event.preventDefault();
@@ -49,6 +59,7 @@ function main (form) {
         extractRadioValue(SIZESELECTOR);
         extractDropValue(FLAVORSHOTSELECTOR);
         extractTextValue(CAFFEINERATINGSELECTOR);
+        dataSaver();
     })
 }
 
