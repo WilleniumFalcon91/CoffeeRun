@@ -3,12 +3,13 @@ var FORMSELECTOR = '[data-coffee-order="form"]';
 
 var COFFEESELECTOR = '[data-coffee-order="coffee"]';
 var EMAILSELECTOR = '[data-email-input="email"]';
-var SIZESELECTOR = '[data-size-selection="size"]';
+var SIZESELECTOR = 'input[data-size-selection="size"]';
 var FLAVORSHOTSELECTOR = '[data-select="flavor"]';
 var CAFFEINERATINGSELECTOR = '[data-caffeine="rating"]'
 
 function storesValue (key, value) {
     localStorage.setItem(key, value);
+    console.log(key);
 }
 
 function extractTextValue(formField) {
@@ -21,14 +22,22 @@ function extractTextValue(formField) {
 function extractRadioValue(formField) { 
     var $input = $(formField);
     var keyName = $input.attr('name');
-    var value = $('input[name=size]:checked').val();
+    var value;
+    $input.each(function (i, e) {
+        if (e.checked === true) {
+            value = e.value;
+        // var value = $('input[name="size"]:checked').text();
+        }
+    }) 
+    // $input
     storesValue(keyName, value);
+    console.log(keyName);
 } 
 
 function extractDropValue(formField) {
     var $input = $(formField);
-    var keyName = $input.attr('name');
-    var value = $('#flavorShot :selected').text();
+    var keyName = $input.first().parent().attr('name')
+    var value = $('#flavorShot :selected').val();
     storesValue(keyName, value);
 }
 
