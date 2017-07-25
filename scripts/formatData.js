@@ -28,12 +28,33 @@ function formatOrderdata(dataObj) {
   return formattedText;
 }
 
+function createCheckbox(email) {
+  var $checkbox = $('<input>', {
+    'type': 'checkbox',
+    'value': email
+  });
+
+  $checkbox.on('click', function (event) {
+    deleteOrder(email)
+      .then(function () {
+        var $container = $checkbox.closest('tr');
+        $container.fadeOut(500, function () {
+          $container.remove();
+        });
+      })
+  })
+  return $checkbox;
+}
+
+
+
 function drawData(data) {
   var $listing = $(ORDERS_LISTING_SELECTOR);
   console.log(data);
   var $table = $('<table>');
   iterateWithObj(data, function (key) {
     var $tr = createRow([
+      createCell(createCheckbox(key)),
       createCell(key),
       createCell(formatOrderdata(data[key]))
     ]);

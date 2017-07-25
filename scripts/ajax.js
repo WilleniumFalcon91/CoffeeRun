@@ -20,3 +20,9 @@ function sendDataToServer() {
     return $.post(URL, myDataDict);
 }
 
+function deleteOrder(email) {
+  return $.ajax({
+    url: URL + '/' + email,
+    method: 'DELETE'
+  });
+}
