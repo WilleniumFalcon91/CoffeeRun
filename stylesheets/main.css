@@ -2,6 +2,10 @@
     color: #ecd9c6;
 }
 
+h1 {
+    font-size: 42px;
+}
+
 body {
     background:     
       linear-gradient(
@@ -20,5 +24,10 @@ body {
     background-color: transparent;
 }
 
+td {
+    padding: 5px;
+    text-align: top;
+    background-color: rgba(44, 32, 16, 0.35)
+}
 
 /* "http://wallpapercave.com/wp/pYAZkIk.jpg" */

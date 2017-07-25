@@ -23,7 +23,7 @@ function formatOrderdata(dataObj) {
   console.log(dataObj);
   var formattedText = '';
   iterateWithObj(dataObj, function (key) {
-    formattedText += key + ':' + dataObj[key] + '<br>';
+    formattedText += key + ':' + " " + dataObj[key] + '<br>';
   });
   return formattedText;
 }
@@ -31,7 +31,7 @@ function formatOrderdata(dataObj) {
 function createCheckbox(email) {
   var $checkbox = $('<input>', {
     'type': 'checkbox',
-    'value': email
+    'value': email,
   });
 
   $checkbox.on('click', function (event) {
