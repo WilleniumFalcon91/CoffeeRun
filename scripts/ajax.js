@@ -1,4 +1,3 @@
-var URL = 'http://dc-coffeerun.herokuapp.com/api/coffeeorders';
 
 var myData = {
     "coffee": 'magicalCoffeeElixir',
@@ -14,13 +13,10 @@ $.post(URL, myData, function(response) {
 })
 
 function getServerData() {
-    $.get(URL, function(data) {
-    return data;
-})
+    return $.get(URL);
 }
 
 function sendDataToServer() {
-    $.post(URL, myDataDict, function(response) {
-    return response;
-})
+    return $.post(URL, myDataDict);
 }
+
